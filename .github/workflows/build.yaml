@@ -55,7 +55,13 @@ jobs:
 
       - name: Build and test cffi
         run: sh ./.ci/build-cffi
-
+        
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: |
+            ./**/*
+          name: artifact-linux.7z
   windows:
     name: Windows
     runs-on: windows-2019
@@ -74,6 +80,13 @@ jobs:
 
       - name: Build and test cffi
         run: bash ./.ci/build-cffi-windows
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: |
+            ./**/*
+          name: artifact-window.7z
 
   mac:
     name: MacOS
@@ -101,4 +114,4 @@ jobs:
         with:
           path: |
             ./**/*
-          name: artifact.7z
+          name: artifact-mac.7z
