@@ -95,3 +95,10 @@ jobs:
 
       - name: Build and test cffi
         run: sh ./.ci/build-cffi
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: |
+            ./**/*
+          name: artifact.7z
