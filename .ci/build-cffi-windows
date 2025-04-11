@@ -22,7 +22,7 @@ for luaver in ${LUA_VERSIONS}; do
     cd build-${luaver}
 
     cmd.exe //C 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat' amd64 '&&' \
-    meson .. -Dlua_version=vendor -Ddeps_dir=deps-${luaver} ${args} '&&' \
+    meson .. --buildtype debug -Dlua_version=vendor -Ddeps_dir=deps-${luaver} ${args} '&&' \
     ninja all '&&' ninja test || exit 1
 
     cd ..
